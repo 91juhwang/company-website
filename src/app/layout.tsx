@@ -1,9 +1,41 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LanguageProvider } from "@/context/LanguageContext";
+import {
+  defaultDescription,
+  defaultTitle,
+  organizationJsonLd,
+  siteUrl,
+} from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Ship Ideas Studio",
-  description: "From Idea to Impact: Custom Software, Websites, Automation, AI.",
+  metadataBase: new URL(siteUrl),
+  title: defaultTitle,
+  description: defaultDescription,
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    title: defaultTitle,
+    description: defaultDescription,
+    siteName: defaultTitle,
+    images: [
+      {
+        url: "/vercel.svg",
+        width: 1200,
+        height: 630,
+        alt: defaultTitle,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: defaultDescription,
+    images: ["/vercel.svg"],
+  },
 };
 
 export default function RootLayout({
@@ -12,9 +44,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    <html lang="en">
       <body className="min-h-screen bg-bg-beige text-ink">
-        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

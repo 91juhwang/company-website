@@ -10,57 +10,60 @@ import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
-    <main className="h-screen overflow-y-scroll snap-y snap-mandatory main-scroll">
-      {/* 각 섹션은 full-height + snap-start */}
-      <section id="hero" className="snap-start min-h-screen flex items-center">
+    <main className="main-scroll md:h-screen md:overflow-y-scroll md:snap-y md:snap-mandatory">
+      {/* 각 섹션은 full-height + snap-start (desktop), natural flow on mobile */}
+      <section
+        id="hero"
+        className="pt-4 md:snap-start md:min-h-screen md:flex"
+      >
         <Hero />
       </section>
 
       <section
         id="services"
-        className="snap-start min-h-screen flex items-center border-t border-black/5"
+        className="border-t border-black/5 md:snap-start md:min-h-screen md:flex md:items-center"
       >
         <ServicesSection />
       </section>
 
       <section
         id="outcomes"
-        className="snap-start min-h-screen flex items-center border-t border-black/5"
+        className="border-t border-black/5 md:snap-start md:min-h-screen md:flex md:items-center"
       >
         <OutcomesSection />
       </section>
 
       <section
         id="process"
-        className="snap-start min-h-screen flex items-center border-t border-black/5"
+        className="border-t border-black/5 md:snap-start md:min-h-screen md:flex md:items-center"
       >
         <ProcessSection />
       </section>
 
       <section
         id="about"
-        className="snap-start min-h-screen flex items-center border-t border-black/5"
+        className="border-t border-black/5 md:snap-start md:min-h-screen md:flex md:items-center"
       >
         <AboutSection />
       </section>
 
       <section
         id="stack"
-        className="snap-start min-h-screen flex items-center border-t border-black/5"
+        className="border-t border-black/5 md:snap-start md:min-h-screen md:flex md:items-center"
       >
         <TechStackSection />
       </section>
 
       <section
         id="faq"
-        className="snap-start min-h-screen flex items-center border-t border-black/5"
+        className="border-t border-black/5 md:snap-start md:min-h-screen md:flex md:items-center"
       >
         <FaqSection />
       </section>
 
       <section
         id="contact"
-        className="snap-start min-h-screen flex items-center border-t border-black/5"
+        className="border-t border-black/5 md:snap-start md:min-h-screen md:flex md:items-center"
       >
         <ContactSection />
       </section>

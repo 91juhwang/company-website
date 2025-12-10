@@ -1,52 +1,162 @@
+"use client";
+
+import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
 
+const heroCopy = {
+  ko: {
+    brand: "JH Studio",
+    nav: [
+      { href: "#services", label: "서비스" },
+      { href: "#process", label: "프로세스" },
+      { href: "#about", label: "소개" },
+      { href: "#contact", label: "문의" },
+    ],
+    headerCta: "프로젝트 상담",
+    badge: "아이디어에서, 임팩트까지",
+    title: {
+      pre: "아이디어를",
+      emphasis: "임펙트 있는 제품",
+      post: "으로 만듭니다.",
+    },
+    subtitle:
+      "웹사이트, 자동화, 커스텀 소프트웨어, AI, 결제 시스템까지. 개발자를 고용하지 않아도, 비즈니스에 딱 맞는 솔루션을 함께 설계하고 만듭니다.",
+    primaryCta: "프로젝트 상담하기",
+    secondaryCta: "제공 서비스 보기",
+    chips: ["웹사이트 · 이커머스", "자동화 · AI", "결제 · 커스텀 소프트웨어"],
+    dashboard: {
+      title: "업무 흐름 스냅샷",
+      live: "실시간",
+      rows: [
+        { label: "웹사이트 주문", value: "15", pill: "오늘", tone: "neutral" },
+        {
+          label: "자동 이메일 발송",
+          value: "43",
+          pill: "자동화",
+          tone: "accent",
+        },
+        { label: "AI 노트 생성", value: "12", pill: "AI", tone: "soft" },
+        {
+          label: "결제 처리 금액",
+          value: "₩6,420,000",
+          pill: "Stripe",
+          tone: "neutral",
+        },
+      ] as const,
+      miniCards: [
+        { title: "웹", subtitle: "랜딩 · 쇼핑몰" },
+        { title: "자동화", subtitle: "이메일 · 시트" },
+        { title: "AI", subtitle: "요약 · 챗봇" },
+      ],
+    },
+  },
+  en: {
+    brand: "JH Studio",
+    nav: [
+      { href: "#services", label: "Services" },
+      { href: "#process", label: "Process" },
+      { href: "#about", label: "About" },
+      { href: "#contact", label: "Contact" },
+    ],
+    headerCta: "Book a call",
+    badge: "Ship ideas into impactful services.",
+    title: {
+      pre: "Turn ideas into",
+      emphasis: "impactful products",
+      post: ".",
+    },
+    subtitle:
+      "Websites, automation, custom software, AI, and payments. We co-design the right mix for your business without the overhead of hiring a full-time developer.",
+    primaryCta: "Book a project call",
+    secondaryCta: "View services",
+    chips: [
+      "Websites & E-commerce",
+      "Automation & AI",
+      "Payments & Custom Software",
+    ],
+    dashboard: {
+      title: "Business Flow Snapshot",
+      live: "Live",
+      rows: [
+        { label: "Website orders", value: "15", pill: "Today", tone: "neutral" },
+        {
+          label: "Auto emails sent",
+          value: "43",
+          pill: "Automation",
+          tone: "accent",
+        },
+        { label: "AI notes generated", value: "12", pill: "AI", tone: "soft" },
+        {
+          label: "Payments processed",
+          value: "$4,820",
+          pill: "Stripe",
+          tone: "neutral",
+        },
+      ] as const,
+      miniCards: [
+        { title: "Web", subtitle: "Landing / Shop" },
+        { title: "Automation", subtitle: "Emails / Sheets" },
+        { title: "AI", subtitle: "Notes / Chatbot" },
+      ],
+    },
+  },
+};
+
 export default function Hero() {
+  const { language, toggleLanguage } = useLanguage();
+  const t = heroCopy[language];
+
   return (
     <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32">
-      <header className="flex items-center justify-between py-6 text-sm text-ink-soft">
-        <span className="font-semibold tracking-tight">
-          JH Studio
-        </span>
-        <nav className="hidden md:flex gap-6">
-          <a href="#services" className="hover:text-ink">
-            Services
-          </a>
-          <a href="#process" className="hover:text-ink">
-            Process
-          </a>
-          <a href="#about" className="hover:text-ink">
-            About
-          </a>
-          <a href="#contact" className="hover:text-ink">
-            Contact
-          </a>
-        </nav>
-        <Link
-          href="#contact"
-          className="inline-flex items-center rounded-full border border-ink/10 bg-white px-4 py-1.5 text-xs font-medium shadow-sm hover:border-ink/30"
+
+      <div className="items-center justify-self-end">
+        <button
+          type="button"
+          onClick={toggleLanguage}
+          className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white px-3 py-1.5 text-xs font-medium shadow-sm hover:border-ink/30 hover:cursor-pointer"
         >
-          프로젝트 상담
-        </Link>
+          <span>{language === "ko" ? "🇰🇷" : "🇺🇸"}</span>
+          <span className="font-semibold">
+            {language === "ko" ? "KO" : "EN"}
+          </span>
+        </button>
+      </div>
+
+      <header className="flex items-center justify-between pb-6 pt-3 text-sm text-ink-soft">
+        <span className="font-semibold tracking-tight">{t.brand}</span>
+        <nav className="hidden md:flex gap-6">
+          {t.nav.map((item) => (
+            <a key={item.href} href={item.href} className="hover:text-ink">
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        <div className="flex items-center gap-2">
+
+          <Link
+            href="#contact"
+            className="inline-flex items-center rounded-full border border-ink/10 bg-white px-4 py-1.5 text-xs font-medium shadow-sm hover:border-ink/30"
+          >
+            {t.headerCta}
+          </Link>
+        </div>
       </header>
 
       <div className="grid gap-10 pt-8 pb-16 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-center">
         {/* Left */}
         <div className="space-y-6">
           <p className="inline-flex items-center rounded-full bg-white/60 px-3 py-1 text-xs text-ink-soft shadow-sm">
-            아이디어를, 진짜 돌아가는 서비스로.
+            {t.badge}
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
-            Ship ideas into{" "}
+            {t.title.pre}{" "}
             <span className="underline decoration-accent decoration-[6px] underline-offset-4">
-              working products
+              {t.title.emphasis}
             </span>
-            .
+            {t.title.post}
           </h1>
           <p className="max-w-xl text-base md:text-lg text-ink-soft">
-            웹사이트, 자동화, 커스텀 소프트웨어, AI, 결제 시스템까지.{" "}
-            <br className="hidden md:block" />
-            개발자를 고용하지 않아도, 비즈니스에 딱 맞는 솔루션을 함께 설계하고
-            만듭니다.
+            {t.subtitle}
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
@@ -54,29 +164,23 @@ export default function Hero() {
               href="#contact"
               className="inline-flex items-center rounded-full bg-ink text-white px-6 py-2.5 text-sm font-medium shadow-md hover:bg-black"
             >
-              프로젝트 상담하기
+              {t.primaryCta}
             </Link>
             <a
               href="#services"
               className="inline-flex items-center rounded-full border border-ink/15 bg-white px-5 py-2.5 text-sm font-medium text-ink-soft hover:border-ink/30"
             >
-              제공 서비스 보기
+              {t.secondaryCta}
             </a>
           </div>
 
           <div className="flex flex-wrap gap-4 text-xs text-ink-soft pt-4">
-            <span className="inline-flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              Websites & E-commerce
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              Automation & AI
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              Payment & Custom Software
-            </span>
+            {t.chips.map((chip) => (
+              <span key={chip} className="inline-flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                {chip}
+              </span>
+            ))}
           </div>
         </div>
 
@@ -84,48 +188,30 @@ export default function Hero() {
         <div className="relative">
           <div className="relative rounded-3xl bg-white/80 shadow-xl shadow-ink/5 p-5 md:p-6">
             <div className="flex items-center justify-between mb-4 text-xs">
-              <span className="font-medium text-ink-soft">
-                Business Flow Snapshot
-              </span>
+              <span className="font-medium text-ink-soft">{t.dashboard.title}</span>
               <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] text-emerald-700">
-                Live
+                {t.dashboard.live}
               </span>
             </div>
             <div className="space-y-3 text-xs">
-              <Row
-                label="Website order"
-                value="15"
-                pill="Today"
-                tone="neutral"
-              />
-              <Row
-                label="Auto emails sent"
-                value="43"
-                pill="Automation"
-                tone="accent"
-              />
-              <Row
-                label="AI notes generated"
-                value="12"
-                pill="AI"
-                tone="soft"
-              />
-              <Row
-                label="Payments processed"
-                value="$4,820"
-                pill="Stripe"
-                tone="neutral"
-              />
+              {t.dashboard.rows.map((row) => (
+                <Row
+                  key={row.label}
+                  label={row.label}
+                  value={row.value}
+                  pill={row.pill}
+                  tone={row.tone}
+                />
+              ))}
             </div>
 
             <div className="mt-6 grid grid-cols-3 gap-3 text-[11px]">
-              <MiniCard title="Web" subtitle="Landing / Shop" />
-              <MiniCard title="Automation" subtitle="Emails, sheets" />
-              <MiniCard title="AI" subtitle="Notes & Chatbot" />
+              {t.dashboard.miniCards.map((card) => (
+                <MiniCard key={card.title} title={card.title} subtitle={card.subtitle} />
+              ))}
             </div>
           </div>
 
-          {/* background blobs */}
           <div className="pointer-events-none absolute -inset-6 -z-10">
             <div className="absolute -top-4 -left-4 h-24 w-24 rounded-full bg-accent/20 blur-3xl" />
             <div className="absolute bottom-0 right-0 h-24 w-24 rounded-full bg-ink/10 blur-3xl" />
