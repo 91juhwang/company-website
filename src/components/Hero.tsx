@@ -181,7 +181,7 @@ export default function Hero() {
             <button
               type="button"
               onClick={scrollToContact}
-              className="inline-flex items-center rounded-full bg-ink text-white px-6 py-2.5 text-sm font-medium shadow-md hover:bg-black"
+              className="hover:cursor-pointer inline-flex items-center rounded-full bg-ink text-white px-6 py-2.5 text-sm font-medium shadow-md hover:bg-black"
             >
               {t.primaryCta}
             </button>
