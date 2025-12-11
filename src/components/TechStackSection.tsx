@@ -19,7 +19,7 @@ const tools = [
   "Vercel",
   "Database",
   "Google Workspace",
-  "And More"
+  "And more"
 ] as const;
 
 const copy = {
@@ -27,13 +27,13 @@ const copy = {
     eyebrow: "Tech & Integrations",
     heading: "자주 사용하는 기술 스택",
     body:
-      "이미 사용 중인 툴(Notion, Google 등)이 있다면 최대한 그대로 살려서, 그 위에 필요한 기능을 얹는 방식으로 설계합니다.",
+      "이미 사용 중인 툴(Excel, Google 등)이 있다면 최대한 그대로 살려서, 그 위에 필요한 기능을 효율적으로 얹는 방식으로 설계합니다.",
   },
   en: {
     eyebrow: "Tech & Integrations",
     heading: "Go-to tools and stack",
     body:
-      "If you're already on tools like Notion, Google, I keep them in place and design the new features on top of what your team knows.",
+      "If you're already on tools like Excel, Google, I keep them in place and design the new features on top of what your team knows.",
   },
 } as const;
 
@@ -57,7 +57,7 @@ export default function TechStackSection() {
         {tools.map((tool) => (
           <span
             key={tool}
-            className="rounded-full border border-ink/10 bg-white/70 px-3 py-1 text-xs md:text-sm text-ink-soft"
+            className="hover:bg-indigo-100 rounded-full border border-ink/10 bg-white/70 px-3 py-1 text-xs md:text-sm text-ink-soft"
           >
             {tool}
           </span>

@@ -51,6 +51,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         <LanguageProvider>{children}</LanguageProvider>
+        <footer className="text-xs text-gray-500 py-6 text-center">
+          Copyright © 2025 jshipit.com - All Rights Reserved.
+        </footer>
       </body>
     </html>
   );

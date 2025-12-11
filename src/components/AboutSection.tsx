@@ -9,7 +9,7 @@ const copy = {
     headingLine1: "개발과 비즈니스를",
     headingLine2: "함께 보는 파트너",
     introParagraphs: [
-      "안녕하세요, James입니다. 9년 이상 풀스택 소프트웨어 개발자로 일하며 스타트업부터 이커머스까지 다양한 프로젝트를 만들어왔습니다.",
+      "안녕하세요, James입니다. 9년 이상 풀스택 소프트웨어 개발자로 일하며 비지니스를 효율화 하고 성장시킬 수 있도록 돕고 있습니다.",
       '단순히 “웹사이트를 만들어주는 사람”이 아니라, 비즈니스 문제를 듣고, 솔루션을 제공하는 사람이라는 생각으로 일하고 있습니다.',
     ],
     mainStackLabel: "Main stack",
@@ -27,7 +27,7 @@ const copy = {
     headingLine1: "A partner who sees both code",
     headingLine2: "and the business",
     introParagraphs: [
-      "Hi, I'm James. For 9+ years I've built products as a full-stack engineer from startups to building my own e-commerce.",
+      "Hi, I’m James. 9+ years of full-stack experience helping founders and businesses build, launch, and scale their products.",
       "I'm not just someone who “makes websites.” I listen to the business problem and translate it into the right technical solution.",
     ],
     mainStackLabel: "Main stack",
