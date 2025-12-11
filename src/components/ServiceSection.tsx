@@ -30,8 +30,8 @@ const servicesCopy = {
         title: "Business Automation",
         subtitle: "반복 업무를 자동화하여 시간 절약",
         bullets: [
-          "주문 → 공장/업체 자동 이메일 / 웹훅",
-          "Google Sheets / Notion 연동",
+          "주문 → 공장/업체 자동 이메일 / 웹훅, 자동 팔로우업 이메일",
+          "Google Sheets / Notion 등 내부 툴 연동",
           "커스텀 API 플로우",
         ],
       },
@@ -121,9 +121,9 @@ const servicesCopy = {
         title: "Business Automation",
         subtitle: "Automate repetitive work to save time",
         bullets: [
-          "Auto emails/webhooks from orders to vendors",
-          "Google Sheets / Notion integrations",
-          "Custom API flows",
+          "Auto emails/webhooks from orders to vendors, automatic follow-ups",
+          "Google Sheets / Notion / 3rd party integrations",
+          "Custom API flows, extract info from PDFs/files",
         ],
       },
       {
@@ -232,7 +232,7 @@ export default function ServicesSection() {
             <button
               type="button"
               onClick={() => scrollByCard("prev")}
-              className="h-9 w-9 rounded-full border border-ink/10 bg-white text-ink hover:border-ink/30 flex items-center justify-center shadow-sm"
+              className="hover:cursor-pointer h-9 w-9 rounded-full border border-ink/10 bg-white text-ink hover:border-ink/30 flex items-center justify-center shadow-sm"
               aria-label="Previous services"
             >
               ←
@@ -240,7 +240,7 @@ export default function ServicesSection() {
             <button
               type="button"
               onClick={() => scrollByCard("next")}
-              className="h-9 w-9 rounded-full border border-ink/10 bg-white text-ink hover:border-ink/30 flex items-center justify-center shadow-sm"
+              className="hover:cursor-pointer h-9 w-9 rounded-full border border-ink/10 bg-white text-ink hover:border-ink/30 flex items-center justify-center shadow-sm"
               aria-label="Next services"
             >
               →

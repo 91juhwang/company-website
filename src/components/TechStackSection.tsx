@@ -8,6 +8,10 @@ const tools = [
   "React",
   "NextJS",
   "TypeScript",
+  "Ruby",
+  "AWS",
+  "Drizzle ORM",
+  "Supabase",
   "Node.js",
   "PostgreSQL",
   "Turso",
@@ -15,6 +19,7 @@ const tools = [
   "Vercel",
   "Database",
   "Google Workspace",
+  "And More"
 ] as const;
 
 const copy = {

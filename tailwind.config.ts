@@ -8,7 +8,7 @@ const config = {
   theme: {
     extend: {
       colors: {
-        "bg-beige": "#faf5f0ff",
+        "bg-beige": "#f8f5eeff",
         ink: "#111827",
         "ink-soft": "#4b5563",
         accent: "#f97316",

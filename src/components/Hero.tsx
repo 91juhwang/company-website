@@ -2,10 +2,12 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
+import Image from "next/image";
+import { useCallback } from "react";
 
 const heroCopy = {
   ko: {
-    brand: "JH Studio",
+    brand: "JShipIt",
     nav: [
       { href: "#services", label: "서비스" },
       { href: "#process", label: "프로세스" },
@@ -13,7 +15,7 @@ const heroCopy = {
       { href: "#contact", label: "문의" },
     ],
     headerCta: "프로젝트 상담",
-    badge: "아이디어에서, 임팩트까지",
+    badge: "아이디어를 실현합니다",
     title: {
       pre: "아이디어를",
       emphasis: "임펙트 있는 제품",
@@ -38,7 +40,7 @@ const heroCopy = {
         { label: "AI 노트 생성", value: "12", pill: "AI", tone: "soft" },
         {
           label: "결제 처리 금액",
-          value: "₩6,420,000",
+          value: "$5,820",
           pill: "Stripe",
           tone: "neutral",
         },
@@ -51,7 +53,7 @@ const heroCopy = {
     },
   },
   en: {
-    brand: "JH Studio",
+    brand: "JShipIt",
     nav: [
       { href: "#services", label: "Services" },
       { href: "#process", label: "Process" },
@@ -59,9 +61,9 @@ const heroCopy = {
       { href: "#contact", label: "Contact" },
     ],
     headerCta: "Book a call",
-    badge: "Ship ideas into impactful services.",
+    badge: "We ship ideas",
     title: {
-      pre: "Turn ideas into",
+      pre: "Ship ideas into",
       emphasis: "impactful products",
       post: ".",
     },
@@ -88,7 +90,7 @@ const heroCopy = {
         { label: "AI notes generated", value: "12", pill: "AI", tone: "soft" },
         {
           label: "Payments processed",
-          value: "$4,820",
+          value: "$5,820",
           pill: "Stripe",
           tone: "neutral",
         },
@@ -106,6 +108,15 @@ export default function Hero() {
   const { language, toggleLanguage } = useLanguage();
   const t = heroCopy[language];
 
+  const scrollToContact = useCallback(() => {
+    const contact = document.getElementById("contact");
+    if (contact) {
+      contact.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32">
 
@@ -115,15 +126,23 @@ export default function Hero() {
           onClick={toggleLanguage}
           className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white px-3 py-1.5 text-xs font-medium shadow-sm hover:border-ink/30 hover:cursor-pointer"
         >
-          <span>{language === "ko" ? "🇰🇷" : "🇺🇸"}</span>
+          <span>{language === "ko" ? "🇺🇸" : "🇰🇷"}</span>
           <span className="font-semibold">
-            {language === "ko" ? "KO" : "EN"}
+            {language === "ko" ? "EN" : "KO"}
           </span>
         </button>
       </div>
 
       <header className="flex items-center justify-between pb-6 pt-3 text-sm text-ink-soft">
-        <span className="font-semibold tracking-tight">{t.brand}</span>
+        <span className="font-semibold tracking-tight">
+          <Image
+            src="/logo.svg"
+            alt="JShipIt logo"
+            width={120}
+            height={10}
+            priority
+          />
+        </span>
         <nav className="hidden md:flex gap-6">
           {t.nav.map((item) => (
             <a key={item.href} href={item.href} className="hover:text-ink">
@@ -132,13 +151,12 @@ export default function Hero() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-
-          <Link
-            href="#contact"
-            className="inline-flex items-center rounded-full border border-ink/10 bg-white px-4 py-1.5 text-xs font-medium shadow-sm hover:border-ink/30"
+          <button
+            className="hover:cursor-pointer inline-flex items-center rounded-full border border-ink/10 bg-white px-4 py-1.5 text-xs font-medium shadow-sm hover:border-ink/30"
+            onClick={() => scrollToContact()}
           >
             {t.headerCta}
-          </Link>
+          </button>
         </div>
       </header>
 
@@ -160,12 +178,13 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
-            <Link
-              href="#contact"
+            <button
+              type="button"
+              onClick={scrollToContact}
               className="inline-flex items-center rounded-full bg-ink text-white px-6 py-2.5 text-sm font-medium shadow-md hover:bg-black"
             >
               {t.primaryCta}
-            </Link>
+            </button>
             <a
               href="#services"
               className="inline-flex items-center rounded-full border border-ink/15 bg-white px-5 py-2.5 text-sm font-medium text-ink-soft hover:border-ink/30"

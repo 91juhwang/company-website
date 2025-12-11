@@ -7,6 +7,7 @@ const copy = {
   ko: {
     eyebrow: "Contact",
     heading: "Ready to build?",
+    demoCallout: "데모 문의 환영",
     intro:
       "아래에 간단히 남겨주시면, 보통 24시간 이내에 이메일로 회신드립니다. 아직 아이디어가 정리가 안 되어 있어도 괜찮습니다. 현재 상황을 편하게 적어주세요.",
     contactLine: "이메일 / 캘린더 링크 / 카카오톡 ID 등 넣을 자리",
@@ -23,11 +24,12 @@ const copy = {
     },
     submit: "메시지 보내기",
     footer:
-      "FOOTER 썸씽",
+      "",
   },
   en: {
     eyebrow: "Contact",
     heading: "Ready to build?",
+    demoCallout: "Contact for demos",
     intro:
       "Leave a quick note below and I usually reply by email within 24 hours. It's okay if the idea isn't fully defined yet—just share where you are now.",
     contactLine: "Drop an email / calendar link / phone # here",
@@ -44,7 +46,7 @@ const copy = {
     },
     submit: "Send message",
     footer:
-      "Footerrr.",
+      "",
   },
 } as const;
 
@@ -62,6 +64,9 @@ export default function ContactSection() {
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
             {t.heading}
           </h2>
+          <div className="mt-2 inline-flex items-center rounded-full border border-ink/10 bg-white px-3 py-1 text-[11px] font-medium text-ink">
+            {t.demoCallout}
+          </div>
           <p className="mt-3 text-sm md:text-base text-ink-soft max-w-md">
             {t.intro}
           </p>
@@ -120,12 +125,16 @@ export default function ContactSection() {
 
           <button
             type="submit"
-            className="inline-flex w-full items-center justify-center rounded-full bg-ink text-white px-4 py-2.5 text-sm font-medium hover:bg-black"
+            className="hover:cursor-pointer inline-flex w-full items-center justify-center rounded-full bg-ink text-white px-4 py-2.5 text-sm font-medium hover:bg-black"
           >
             {t.submit}
           </button>
 
-          <p className="text-[11px] text-ink-soft">{t.footer}</p>
+          <div className="text-xs font-semibold text-ink text-center">
+            {t.demoCallout}
+          </div>
+
+          {/* <p className="text-[11px] text-ink-soft">{t.footer}</p> */}
         </form>
       </div>
     </div>

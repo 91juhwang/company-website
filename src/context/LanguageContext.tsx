@@ -21,21 +21,22 @@ const LanguageContext = createContext<LanguageContextValue | undefined>(
 );
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("site-language") as Language | null;
-      if (stored === "ko" || stored === "en") {
-        return stored;
-      }
-    }
-    return "en";
-  });
+  const [language, setLanguage] = useState<Language>("en");
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("site-language", language);
-      document.documentElement.lang = language;
+    if (typeof window === "undefined") return;
+
+    const stored = localStorage.getItem("site-language") as Language | null;
+    if (stored === "ko" || stored === "en") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setLanguage(stored);
     }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    localStorage.setItem("site-language", language);
+    document.documentElement.lang = language;
   }, [language]);
 
   const toggleLanguage = () =>
