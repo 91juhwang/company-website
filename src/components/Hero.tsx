@@ -118,7 +118,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32">
+    <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-40">
 
       <div className="items-center justify-self-end">
         <button
@@ -160,13 +160,13 @@ export default function Hero() {
         </div>
       </header>
 
-      <div className="grid gap-10 pt-8 pb-16 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-center">
+      <div className="grid gap-12 pt-8 pb-16 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-center 2xl:gap-16">
         {/* Left */}
         <div className="space-y-6">
           <p className="inline-flex items-center rounded-full bg-white/60 px-3 py-1 text-xs text-ink-soft shadow-sm">
             {t.badge}
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight">
             {t.title.pre}{" "}
             <span className="underline decoration-accent decoration-[6px] underline-offset-4">
               {t.title.emphasis}

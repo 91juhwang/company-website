@@ -10,7 +10,7 @@ const copy = {
     demoCallout: "데모 문의 환영",
     intro:
       "아래에 간단히 남겨주시면, 보통 24시간 이내에 이메일로 회신드립니다. 아직 아이디어가 정리가 안 되어 있어도 괜찮습니다. 현재 상황을 편하게 적어주세요.",
-    contactLine: "이메일 / 캘린더 링크 / 카카오톡 ID 등 넣을 자리",
+    contactLine: "이메일 / 전화번호 / 카카오톡 ID 등을 남겨주세요",
     contactLineNote: "(예: email@domain.com, 평일 10:00–18:00)",
     fields: {
       nameLabel: "이름 / 이름 + 직책",
@@ -32,7 +32,7 @@ const copy = {
     demoCallout: "Contact for demos",
     intro:
       "Leave a quick note below and I usually reply by email within 24 hours. It's okay if the idea isn't fully defined yet—just share where you are now.",
-    contactLine: "Drop an email / calendar link / phone # here",
+    contactLine: "Drop an email / calendar link / phone # etc.",
     contactLineNote: "(e.g., email@domain.com, weekdays 10:00–18:00)",
     fields: {
       nameLabel: "Name / Name + Title",
@@ -55,13 +55,13 @@ export default function ContactSection() {
   const t = copy[language];
 
   return (
-    <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 py-16 md:py-24">
+    <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-40 py-16 md:py-24">
       <div className="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.3fr)] md:items-start">
         <div>
           <p className="text-xs uppercase tracking-[0.2em] text-ink-soft">
             {t.eyebrow}
           </p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+          <h2 className="mt-3 text-3xl md:text-4xl xl:text-5xl font-semibold tracking-tight">
             {t.heading}
           </h2>
           <div className="mt-2 inline-flex items-center rounded-full border border-ink/10 bg-white px-3 py-1 text-[11px] font-medium text-ink">

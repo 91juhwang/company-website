@@ -47,18 +47,18 @@ export default function AboutSection() {
   const t = copy[language];
 
   return (
-    <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 py-16 md:py-24">
+    <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-40 py-16 md:py-24">
       <div className="grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-center">
         <div>
           <p className="text-xs uppercase tracking-[0.2em] text-ink-soft">
             {t.eyebrow}
           </p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+          <h2 className="mt-3 text-3xl md:text-4xl xl:text-5xl font-semibold tracking-tight">
             {t.headingLine1}
             <br className="hidden md:block" />
             {t.headingLine2}
           </h2>
-          <div className="mt-4 text-sm md:text-base text-ink-soft max-w-xl space-y-2">
+          <div className="mt-4 text-sm md:text-base xl:text-lg text-ink-soft max-w-3xl space-y-2">
             {t.introParagraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}

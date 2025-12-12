@@ -212,17 +212,17 @@ export default function ServicesSection() {
   return (
     <div
       ref={sectionRef}
-      className="w-full px-6 md:px-12 lg:px-20 xl:px-32 py-16 md:py-24"
+      className="w-full px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-40 py-16 md:py-24"
     >
       <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div>
           <p className="text-xs uppercase tracking-[0.2em] text-ink-soft">
             {content.eyebrow}
           </p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+          <h2 className="mt-3 text-3xl md:text-4xl xl:text-5xl font-semibold tracking-tight">
             {content.heading}
           </h2>
-          <p className="mt-3 max-w-xl text-sm md:text-base text-ink-soft">
+          <p className="mt-3 max-w-3xl text-sm md:text-base xl:text-lg text-ink-soft">
             {content.subtitle}
           </p>
         </div>

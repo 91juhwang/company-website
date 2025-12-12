@@ -55,11 +55,11 @@ export default function ProcessSection() {
   const t = copy[language];
 
   return (
-    <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 py-16 md:py-24">
+    <div className="w-full px-6 md:px-12 lg:px-20 xl:px-32 2xl:px-40 py-16 md:py-24">
       <p className="text-xs uppercase tracking-[0.2em] text-ink-soft">
         {t.eyebrow}
       </p>
-      <h2 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+      <h2 className="mt-3 text-3xl md:text-4xl xl:text-5xl font-semibold tracking-tight">
         {t.heading}
       </h2>
 
